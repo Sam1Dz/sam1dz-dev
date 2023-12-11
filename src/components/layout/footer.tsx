@@ -82,7 +82,13 @@ export default function FooterLayout() {
             <Stack direction="row" spacing={1}>
               <NextLink href="https://github.com/Sam1Dz" target="_blank">
                 <IconButton
-                  size={breakpoints.md ? 'large' : 'medium'}
+                  size={
+                    breakpoints.md
+                      ? 'large'
+                      : breakpoints.xs
+                        ? 'medium'
+                        : 'small'
+                  }
                   color="inherit"
                 >
                   <GitHubIcon />
@@ -93,7 +99,13 @@ export default function FooterLayout() {
                 target="_blank"
               >
                 <IconButton
-                  size={breakpoints.md ? 'large' : 'medium'}
+                  size={
+                    breakpoints.md
+                      ? 'large'
+                      : breakpoints.xs
+                        ? 'medium'
+                        : 'small'
+                  }
                   color="inherit"
                 >
                   <LinkedInIcon />

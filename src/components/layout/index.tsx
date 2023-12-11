@@ -32,7 +32,7 @@ export const ColorModeContext = React.createContext({
 });
 
 export default function Layout({ children }: ILayoutProps) {
-  const [mode, setMode] = React.useState<'light' | 'dark'>('dark');
+  const [mode, setMode] = React.useState<'light' | 'dark'>('light');
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
