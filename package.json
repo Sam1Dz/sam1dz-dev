@@ -1,6 +1,6 @@
 {
   "name": "sam1dz-dev",
-  "version": "1.0.0_9-alpha.2",
+  "version": "1.0.0_10-alpha.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
   },
   "engines": {
     "node": ">=18.17.0",
-    "npm": ">=10"
+    "npm": ">=9"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
