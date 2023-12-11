@@ -11,6 +11,18 @@ import Box from '@mui/material/Box';
 import HeaderLayout from './header';
 import FooterLayout from './footer';
 
+declare module '@mui/system' {
+  // eslint-disable-next-line no-unused-vars
+  interface BreakpointOverrides {
+    xxs: true;
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+  }
+}
+
 interface ILayoutProps {
   children: React.ReactNode;
 }
@@ -44,6 +56,16 @@ export default function Layout({ children }: ILayoutProps) {
         },
         typography: {
           fontFamily: ['Montserrat', '"Roboto"', 'sans-serif'].join(','),
+        },
+        breakpoints: {
+          values: {
+            xxs: 0,
+            xs: 320,
+            sm: 600,
+            md: 900,
+            lg: 1200,
+            xl: 1536,
+          },
         },
       }),
     [mode],

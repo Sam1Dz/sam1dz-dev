@@ -21,18 +21,27 @@ import Typography from '@mui/material/Typography';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DeveloperModeRoundedIcon from '@mui/icons-material/DeveloperModeRounded';
+import MenuIcon from '@mui/icons-material/Menu';
+
+/* APP HOOKS */
+import useResponsive from '@/hooks/use-responsive';
 
 export default function HeaderLayout() {
   const theme = useTheme();
+  const { breakpoints } = useResponsive();
+
   const colorMode = React.useContext(ColorModeContext);
 
   return (
     <AppBar position="static">
       <Container maxWidth="lg">
         <Toolbar disableGutters>
-          <DeveloperModeRoundedIcon sx={{ display: 'flex', mr: 1 }} />
+          <DeveloperModeRoundedIcon
+            fontSize={breakpoints.xs ? 'medium' : 'small'}
+            sx={{ display: 'flex', mr: 1 }}
+          />
           <Typography
-            variant="h5"
+            variant={breakpoints.xs ? 'h5' : 'body1'}
             noWrap
             sx={{
               mr: 2,
@@ -48,7 +57,8 @@ export default function HeaderLayout() {
 
           <Box sx={{ flexGrow: 1 }} />
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          {/* Desktop */}
+          <Box sx={{ display: { xxs: 'none', md: 'flex' } }}>
             <Stack direction="row" spacing={1}>
               {/* <Button size="large" color="inherit">
                 Proyek
@@ -79,6 +89,13 @@ export default function HeaderLayout() {
                 </IconButton>
               </Tooltip>
             </Stack>
+          </Box>
+
+          {/* Mobile */}
+          <Box sx={{ display: { xxs: 'flex', md: 'none' } }}>
+            <IconButton color="inherit">
+              <MenuIcon />
+            </IconButton>
           </Box>
         </Toolbar>
       </Container>
