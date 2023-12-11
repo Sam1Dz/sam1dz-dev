@@ -1,0 +1,37 @@
+{
+  "name": "sam1dz-dev",
+  "version": "1.0.0_1-alpha.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier": "prettier --write ."
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=10"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/montserrat": "^5.0.16",
+    "@fontsource/roboto": "^5.0.8",
+    "@fontsource/ubuntu-mono": "^5.0.18",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/material": "^5.14.20",
+    "next": "^14",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "^14",
+    "prettier": "^3.1.1",
+    "typescript": "^5"
+  }
+}
