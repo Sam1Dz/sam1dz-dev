@@ -21,8 +21,8 @@ import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import DescriptionIcon from '@mui/icons-material/Description';
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+// import DescriptionIcon from '@mui/icons-material/Description';
+// import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 
 /* APP HOOKS */
 import useResponsive from '@/hooks/use-responsive';
@@ -85,7 +85,7 @@ export default function DrawerMobileNav({
               />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
+          {/* <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <DescriptionIcon
@@ -128,7 +128,7 @@ export default function DrawerMobileNav({
                 }
               />
             </ListItemButton>
-          </ListItem>
+          </ListItem> */}
         </List>
 
         <Divider

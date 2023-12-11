@@ -1,5 +1,8 @@
 import React from 'react';
 
+/* REACT COOKIES */
+import { useCookies } from 'react-cookie';
+
 /* MATERAIL UI */
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -32,21 +35,29 @@ export const ColorModeContext = React.createContext({
 });
 
 export default function Layout({ children }: ILayoutProps) {
-  const [mode, setMode] = React.useState<'light' | 'dark'>('light');
+  const [cookies, setCookie] = useCookies(['colorMode']);
+
+  const [initialized, setInitialized] = React.useState(false);
+  const [mode, setMode] = React.useState<'light' | 'dark' | null>(null);
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        setMode((prevMode) => {
+          setCookie('colorMode', prevMode === 'light' ? 'dark' : 'light', {
+            sameSite: 'lax',
+          });
+          return prevMode === 'light' ? 'dark' : 'light';
+        });
       },
     }),
-    [],
+    [setCookie],
   );
 
   const theme = React.useMemo(
     () =>
       createTheme({
         palette: {
-          mode,
+          mode: mode !== null ? mode : 'light',
           primary: {
             main: '#80d8ff',
           },
@@ -70,6 +81,21 @@ export default function Layout({ children }: ILayoutProps) {
       }),
     [mode],
   );
+
+  React.useEffect(() => {
+    if (!initialized) {
+      if (cookies.colorMode) {
+        setMode(cookies.colorMode);
+      } else {
+        setMode('dark');
+        setCookie('colorMode', 'dark', { sameSite: 'lax' });
+      }
+
+      setInitialized(true);
+    }
+  }, [cookies.colorMode, initialized, setCookie]);
+
+  if (mode === null) return null;
 
   return (
     <ColorModeContext.Provider value={colorMode}>

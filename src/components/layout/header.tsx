@@ -80,13 +80,12 @@ export default function HeaderLayout() {
                 <Button size="large" color="inherit">
                   Profil
                 </Button>
-                <Button size="large" color="inherit">
+                {/* <Button size="large" color="inherit">
                   Proyek
                 </Button>
-
                 <Button size="large" color="inherit">
                   Mabar
-                </Button>
+                </Button> */}
                 <Tooltip
                   title={
                     theme.palette.mode === 'dark'
