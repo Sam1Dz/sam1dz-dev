@@ -17,13 +17,11 @@ export default function Home() {
         />
         <meta
           name="theme-color"
-          media="(prefers-color-scheme: light)"
-          content={theme.palette.primary.main}
-        />
-        <meta
-          name="theme-color"
-          media="(prefers-color-scheme: dark)"
-          content="#121212"
+          content={
+            theme.palette.mode === 'dark'
+              ? '#272727'
+              : theme.palette.primary.main
+          }
         />
       </NextHead>
     </React.Fragment>

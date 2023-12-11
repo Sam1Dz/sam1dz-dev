@@ -44,7 +44,7 @@ export default function HeaderLayout() {
   return (
     <React.Fragment>
       <AppBar
-        position="relative"
+        position="sticky"
         sx={{
           zIndex: (theme) => theme.zIndex.drawer + 1,
 
