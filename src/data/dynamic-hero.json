@@ -1,0 +1,45 @@
+{
+  "last_update": "2023-12-13T04:34:09.091Z",
+  "data": [
+    {
+      "src": "/images/hero/1.jpg",
+      "alt": "Hero Image 1"
+    },
+    {
+      "src": "/images/hero/2.jpg",
+      "alt": "Hero Image 2"
+    },
+    {
+      "src": "/images/hero/3.jpg",
+      "alt": "Hero Image 3"
+    },
+    {
+      "src": "/images/hero/4.jpg",
+      "alt": "Hero Image 4"
+    },
+    {
+      "src": "/images/hero/5.jpg",
+      "alt": "Hero Image 5"
+    },
+    {
+      "src": "/images/hero/6.jpg",
+      "alt": "Hero Image 6"
+    },
+    {
+      "src": "/images/hero/7.jpg",
+      "alt": "Hero Image 7"
+    },
+    {
+      "src": "/images/hero/8.jpg",
+      "alt": "Hero Image 8"
+    },
+    {
+      "src": "/images/hero/9.jpg",
+      "alt": "Hero Image 9"
+    },
+    {
+      "src": "/images/hero/10.jpg",
+      "alt": "Hero Image 10"
+    }
+  ]
+}

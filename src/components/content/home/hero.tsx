@@ -1,3 +1,4 @@
+import React from 'react';
 import NextImage from 'next/image';
 
 /* MATERIAL UI | COMPONENTS */
@@ -7,8 +8,17 @@ import Typography from '@mui/material/Typography';
 /* APP HOOKS */
 import useResponsive from '@/hooks/use-responsive';
 
+/* APP LIBS */
+import GetDynamicHero, { type TDynamicHero } from '@/libs/get-dynamic-hero';
+
 export default function HomeHero() {
   const { breakpoints } = useResponsive();
+
+  const [heroImage, setHeroImage] = React.useState<TDynamicHero | null>(null);
+
+  React.useEffect(() => {
+    setHeroImage(GetDynamicHero());
+  }, []);
 
   return (
     <Box component="section" sx={{ height: { xxs: 472, md: 656 } }}>
@@ -16,15 +26,18 @@ export default function HomeHero() {
         sx={{
           position: 'relative',
           height: '100%',
+          bgcolor: '#121212',
         }}
       >
-        <NextImage
-          src="/images/hero_1.jpg"
-          alt="Hero Image 1"
-          sizes="(max-width: 600px) 100vw, 50vw"
-          fill
-          style={{ objectFit: 'cover', filter: 'brightness(.25)' }}
-        />
+        {heroImage && (
+          <NextImage
+            src={heroImage.src}
+            alt={heroImage.alt}
+            sizes="(max-width: 600px) 100vw, 75vw"
+            fill
+            style={{ objectFit: 'cover', filter: 'brightness(.25)' }}
+          />
+        )}
 
         <Box
           sx={{
