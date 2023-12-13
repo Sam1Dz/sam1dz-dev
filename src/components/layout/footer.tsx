@@ -52,7 +52,7 @@ export default function FooterLayout() {
               >
                 v{publicRuntimeConfig.version} &#40;
                 <NextLink
-                  href="https://github.com/Sam1Dz/sam1dz-dev/tree/126c9089086abb541c53c561cc202b488d5e1cc9"
+                  href="https://github.com/Sam1Dz/sam1dz-dev/tree/837c8d2967967ede0be3fad162b83ae9d451393c"
                   target="_blank"
                   style={{
                     color:
@@ -61,7 +61,7 @@ export default function FooterLayout() {
                         : '#da0091',
                   }}
                 >
-                  126c908
+                  837c8d2
                 </NextLink>
                 &#41; /{' '}
                 <NextLink
