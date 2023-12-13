@@ -5,7 +5,9 @@ import getConfig from 'next/config';
 import { IconButton, Stack, Typography, useTheme } from '@mui/material';
 
 /* MATERIAL UI | COMPONENTS */
-import { Box, Container, Paper } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
 
 /* MATERIAL UI | ICONS */
 import GitHubIcon from '@mui/icons-material/GitHub';

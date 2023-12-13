@@ -64,7 +64,7 @@ export default function HeaderLayout() {
                 mr: 2,
                 display: 'flex',
                 fontFamily: 'Ubuntu Mono',
-                letterSpacing: '.25rem',
+                letterSpacing: { xs: '.5rem', xxs: '0.25rem' },
                 color: 'inherit',
                 textDecoration: 'none',
               }}
@@ -114,7 +114,7 @@ export default function HeaderLayout() {
                 color="inherit"
                 onClick={() => setOpenMobileDrawer(!openMobileDrawer)}
               >
-                <MenuIcon fontSize={breakpoints.xs ? 'medium' : 'small'} />
+                <MenuIcon fontSize={breakpoints.md ? 'medium' : 'small'} />
               </IconButton>
             </Box>
           </Toolbar>

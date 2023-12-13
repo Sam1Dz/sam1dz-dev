@@ -67,7 +67,7 @@ export default function DrawerMobileNav({
             <ListItemButton>
               <ListItemIcon>
                 <AccountCircleIcon
-                  fontSize={breakpoints.xs ? 'medium' : 'small'}
+                  fontSize={breakpoints.xxs ? 'medium' : 'small'}
                   sx={{
                     color:
                       theme.palette.mode === 'dark'
@@ -89,7 +89,7 @@ export default function DrawerMobileNav({
             <ListItemButton>
               <ListItemIcon>
                 <DescriptionIcon
-                  fontSize={breakpoints.xs ? 'medium' : 'small'}
+                  fontSize={breakpoints.xxs ? 'medium' : 'small'}
                   sx={{
                     color:
                       theme.palette.mode === 'dark'
@@ -111,7 +111,7 @@ export default function DrawerMobileNav({
             <ListItemButton>
               <ListItemIcon>
                 <SportsEsportsIcon
-                  fontSize={breakpoints.xs ? 'medium' : 'small'}
+                  fontSize={breakpoints.xxs ? 'medium' : 'small'}
                   sx={{
                     color:
                       theme.palette.mode === 'dark'
@@ -142,7 +142,7 @@ export default function DrawerMobileNav({
             <Box sx={{ width: '100%', py: 1, px: 2 }}>
               <Button
                 variant="outlined"
-                size={breakpoints.xs ? 'medium' : 'small'}
+                size={breakpoints.xxs ? 'medium' : 'small'}
                 startIcon={
                   theme.palette.mode === 'dark' ? (
                     <Brightness4Icon />

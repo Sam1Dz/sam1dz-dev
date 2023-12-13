@@ -4,6 +4,9 @@ import NextHead from 'next/head';
 /* MATERIAL UI */
 import { useTheme } from '@mui/material';
 
+/* APP CONTENT */
+import HomeHero from '@/components/content/home/hero';
+
 export default function Home() {
   const theme = useTheme();
 
@@ -24,6 +27,8 @@ export default function Home() {
           }
         />
       </NextHead>
+
+      <HomeHero />
     </React.Fragment>
   );
 }
