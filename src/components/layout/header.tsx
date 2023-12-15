@@ -24,12 +24,12 @@ import DeveloperModeRoundedIcon from '@mui/icons-material/DeveloperModeRounded';
 import MenuIcon from '@mui/icons-material/Menu';
 
 /* APP UI */
-import DrawerMobileNav from '../ui/Drawer/mobile-nav';
+import UIDrawerMobileNav from '../ui/Drawer/mobile-nav';
 
 /* APP HOOKS */
 import useResponsive from '@/hooks/use-responsive';
 
-export default function HeaderLayout() {
+export default function LayoutHeader() {
   const theme = useTheme();
   const { breakpoints } = useResponsive();
 
@@ -121,7 +121,7 @@ export default function HeaderLayout() {
         </Container>
       </AppBar>
 
-      <DrawerMobileNav
+      <UIDrawerMobileNav
         open={openMobileDrawer}
         onClose={() => setOpenMobileDrawer(false)}
       />

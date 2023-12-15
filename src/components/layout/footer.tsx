@@ -17,7 +17,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import useResponsive from '@/hooks/use-responsive';
 
 const { publicRuntimeConfig } = getConfig();
-export default function FooterLayout() {
+export default function LayoutFooter() {
   const theme = useTheme();
   const { breakpoints } = useResponsive();
 

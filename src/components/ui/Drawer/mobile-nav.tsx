@@ -27,15 +27,15 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 /* APP HOOKS */
 import useResponsive from '@/hooks/use-responsive';
 
-interface IDrawerMobileNavProps {
+interface IUIDrawerMobileNavProps {
   open: boolean;
   onClose: () => void;
 }
 
-export default function DrawerMobileNav({
+export default function UIDrawerMobileNav({
   open,
   onClose,
-}: IDrawerMobileNavProps) {
+}: IUIDrawerMobileNavProps) {
   const theme = useTheme();
   const { breakpoints } = useResponsive();
 

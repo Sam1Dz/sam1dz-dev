@@ -11,8 +11,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 
 /* LAYOUT COMPONENTS */
-import HeaderLayout from './header';
-import FooterLayout from './footer';
+import LayoutHeader from './header';
+import LayoutFooter from './footer';
 
 declare module '@mui/system' {
   // eslint-disable-next-line no-unused-vars
@@ -102,11 +102,11 @@ export default function Layout({ children }: ILayoutProps) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <HeaderLayout />
+        <LayoutHeader />
         <Box component="main" minHeight="90vh">
           {children}
         </Box>
-        <FooterLayout />
+        <LayoutFooter />
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

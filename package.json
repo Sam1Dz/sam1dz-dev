@@ -1,6 +1,6 @@
 {
   "name": "sam1dz-dev",
-  "version": "1.0.0_18-alpha.5",
+  "version": "1.0.0_19-alpha.6",
   "private": true,
   "scripts": {
     "dev": "next dev",
