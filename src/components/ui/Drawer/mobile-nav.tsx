@@ -4,10 +4,11 @@ import React from 'react';
 import { ColorModeContext } from '@/components/layout';
 
 /* MATERIAL UI */
-import { Button, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
 
 /* MATERIAL UI | COMPONENTS */
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
@@ -139,40 +140,7 @@ export default function UIDrawerMobileNav({
 
         <List>
           <ListItem disablePadding>
-            <Box sx={{ width: '100%', py: 1, px: 2 }}>
-              <Button
-                variant="outlined"
-                size={breakpoints.xxs ? 'medium' : 'small'}
-                startIcon={
-                  theme.palette.mode === 'dark' ? (
-                    <Brightness4Icon />
-                  ) : (
-                    <Brightness7Icon />
-                  )
-                }
-                onClick={colorMode.toggleColorMode}
-                fullWidth
-                sx={
-                  theme.palette.mode === 'dark'
-                    ? {
-                        color: '#fff',
-                        borderColor: '#fff',
-                        '&:hover': {
-                          borderColor: '#fff',
-                        },
-                      }
-                    : {
-                        color: '#000000de',
-                        borderColor: '#000000de',
-                        '&:hover': {
-                          borderColor: '#000000de',
-                        },
-                      }
-                }
-              >
-                {theme.palette.mode === 'dark' ? 'Tema Gelap' : 'Tema Terang'}
-              </Button>
-            </Box>
+            <Box sx={{ width: '100%', py: 1, px: 2 }}></Box>
           </ListItem>
         </List>
       </Box>

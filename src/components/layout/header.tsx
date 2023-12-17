@@ -18,22 +18,23 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
 /* MATERIAL UI | ICONS */
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DeveloperModeRoundedIcon from '@mui/icons-material/DeveloperModeRounded';
 import MenuIcon from '@mui/icons-material/Menu';
+import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
 
 /* APP UI */
 import UIDrawerMobileNav from '../ui/Drawer/mobile-nav';
 
 /* APP HOOKS */
 import useResponsive from '@/hooks/use-responsive';
+import UIDialogSetTheme from '../ui/Dialog/set-theme';
 
 export default function LayoutHeader() {
   const theme = useTheme();
   const { breakpoints } = useResponsive();
 
   const [openMobileDrawer, setOpenMobileDrawer] = React.useState(false);
+  const [openDialogTheme, setOpenDialogTheme] = React.useState(false);
 
   const colorMode = React.useContext(ColorModeContext);
 
@@ -86,23 +87,13 @@ export default function LayoutHeader() {
                 <Button size="large" color="inherit">
                   Mabar
                 </Button> */}
-                <Tooltip
-                  title={
-                    theme.palette.mode === 'dark'
-                      ? 'Ganti ke Tema Terang'
-                      : 'Ganti ke Tema Gelap'
-                  }
-                >
+                <Tooltip title="Tema">
                   <IconButton
                     size="large"
                     color="inherit"
-                    onClick={colorMode.toggleColorMode}
+                    onClick={() => setOpenDialogTheme(true)}
                   >
-                    {theme.palette.mode === 'dark' ? (
-                      <Brightness4Icon />
-                    ) : (
-                      <Brightness7Icon />
-                    )}
+                    <SettingsBrightnessIcon />
                   </IconButton>
                 </Tooltip>
               </Stack>
@@ -124,6 +115,10 @@ export default function LayoutHeader() {
       <UIDrawerMobileNav
         open={openMobileDrawer}
         onClose={() => setOpenMobileDrawer(false)}
+      />
+      <UIDialogSetTheme
+        open={openDialogTheme}
+        onClose={() => setOpenDialogTheme(false)}
       />
     </React.Fragment>
   );
