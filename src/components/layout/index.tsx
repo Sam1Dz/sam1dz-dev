@@ -36,16 +36,19 @@ export const ColorModeContext = React.createContext<{
   // eslint-disable-next-line no-unused-vars
   toggleColorMode: (colorMode: TColorMode) => void;
 }>({
-  toggleColorMode: () => { },
+  toggleColorMode: () => {},
 });
 
 export default function Layout({ children }: ILayoutProps) {
-  const [cookies, setCookie] = useCookies(['colorMode', 'colorPreferedSystem']);
-
   const [initialized, setInitialized] = React.useState(false);
-  const [isPreferedSystem, setIsPreferedSystem] = React.useState<number | null>(null);
   const [mode, setMode] = React.useState<Exclude<TColorMode, 'system'> | null>(
     null,
+  );
+
+  const [cookies, setCookie] = useCookies(['colorMode', 'colorPreferedSystem']);
+
+  const cookieColorPreferedSystemRef = React.useRef(
+    cookies.colorPreferedSystem,
   );
 
   const checkSystemColor = () => {
@@ -56,34 +59,34 @@ export default function Layout({ children }: ILayoutProps) {
     }
   };
 
-  const setColorPreferedSystem = React.useCallback(
-    (withoutPrefered?: boolean) => {
-      setMode(checkSystemColor());
-      setCookie('colorMode', checkSystemColor(), { sameSite: 'lax' });
-
-      if (!withoutPrefered) {
-        setIsPreferedSystem(1);
-        setCookie('colorPreferedSystem', 1, { sameSite: 'lax' });
-      }
+  const setCookieColorPreferedSystem = React.useCallback(
+    (value: 0 | 1) => {
+      cookieColorPreferedSystemRef.current = value;
+      setCookie('colorPreferedSystem', value, { sameSite: 'lax' });
     },
     [setCookie],
   );
+
+  const setColorPreferedSystem = React.useCallback(() => {
+    setMode(checkSystemColor());
+    setCookie('colorMode', checkSystemColor(), { sameSite: 'lax' });
+    setCookieColorPreferedSystem(1);
+  }, [setCookieColorPreferedSystem, setCookie]);
 
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: (colorMode: TColorMode) => {
         if (colorMode !== 'system') {
-          setCookie('colorPreferedSystem', 0, { sameSite: 'lax' });
+          setCookieColorPreferedSystem(0);
           setCookie('colorMode', colorMode, { sameSite: 'lax' });
 
-          setIsPreferedSystem(0);
           setMode(colorMode);
         } else {
           setColorPreferedSystem();
         }
       },
     }),
-    [setColorPreferedSystem, setCookie],
+    [setCookieColorPreferedSystem, setColorPreferedSystem, setCookie],
   );
 
   const MUITheme = React.useMemo(
@@ -123,7 +126,7 @@ export default function Layout({ children }: ILayoutProps) {
             setMode(cookies.colorMode);
           }
 
-          setCookie('colorPreferedSystem', 0, { sameSite: 'lax' });
+          setCookieColorPreferedSystem(0);
         } else {
           setColorPreferedSystem();
         }
@@ -137,20 +140,26 @@ export default function Layout({ children }: ILayoutProps) {
     cookies.colorMode,
     cookies.colorPreferedSystem,
     initialized,
+    setCookieColorPreferedSystem,
     setColorPreferedSystem,
     setCookie,
   ]);
 
   React.useEffect(() => {
-    if (cookies.colorPreferedSystem === 1) {
-      matchMedia('(prefers-color-scheme: dark)').addEventListener(
+    const detectSystem = () => {
+      if (cookieColorPreferedSystemRef.current === 1) setColorPreferedSystem();
+    };
+
+    matchMedia('(prefers-color-scheme: dark)').addEventListener(
+      'change',
+      detectSystem,
+    );
+
+    return () =>
+      matchMedia('(prefers-color-scheme: dark)').removeEventListener(
         'change',
-        () => {
-          console.log(cookies.colorPreferedSystem);
-          setColorPreferedSystem(true);
-        },
+        detectSystem,
       );
-    }
   }, [cookies.colorPreferedSystem, setColorPreferedSystem]);
 
   if (mode === null) return null;

@@ -1,11 +1,5 @@
 import React from 'react';
 
-/* REACT CONTEXT */
-import { ColorModeContext } from '.';
-
-/* MATERIAL UI */
-import { useTheme } from '@mui/material';
-
 /* MATERIAL UI | COMPONENTS */
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -30,13 +24,10 @@ import useResponsive from '@/hooks/use-responsive';
 import UIDialogSetTheme from '../ui/Dialog/set-theme';
 
 export default function LayoutHeader() {
-  const theme = useTheme();
   const { breakpoints } = useResponsive();
 
   const [openMobileDrawer, setOpenMobileDrawer] = React.useState(false);
   const [openDialogTheme, setOpenDialogTheme] = React.useState(false);
-
-  const colorMode = React.useContext(ColorModeContext);
 
   const AppBarExtendProps = openMobileDrawer && {
     boxShadow: 'none',

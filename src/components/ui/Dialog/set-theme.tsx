@@ -1,6 +1,3 @@
-/* MATERIAL UI */
-import { useTheme } from '@mui/material';
-
 /* MATERIAL UI | COMPONENTS */
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -18,8 +15,6 @@ export default function UIDialogSetTheme({
   open,
   onClose,
 }: IUIDialogSetThemeProps) {
-  const theme = useTheme();
-
   return (
     <Dialog maxWidth="sm" open={open} onClose={onClose} fullWidth>
       <DialogTitle>Tema</DialogTitle>
