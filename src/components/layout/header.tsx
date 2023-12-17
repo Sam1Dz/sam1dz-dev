@@ -29,6 +29,18 @@ export default function LayoutHeader() {
   const [openMobileDrawer, setOpenMobileDrawer] = React.useState(false);
   const [openDialogTheme, setOpenDialogTheme] = React.useState(false);
 
+  React.useEffect(() => {
+    if (breakpoints.md) {
+      setOpenMobileDrawer(() => {
+        return false;
+      });
+    } else {
+      setOpenDialogTheme(() => {
+        return false;
+      });
+    }
+  }, [breakpoints.md]);
+
   const AppBarExtendProps = openMobileDrawer && {
     boxShadow: 'none',
     border: 'none',

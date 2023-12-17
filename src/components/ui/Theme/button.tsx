@@ -19,6 +19,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import PersonalVideoIcon from '@mui/icons-material/PersonalVideo';
 
 interface IUIThemeButtonProps {
+  iconOnly?: boolean;
   size?: 'small' | 'medium' | 'large';
 }
 
@@ -41,6 +42,7 @@ const ButtonTheme = styled(Button)(({ theme }) => ({
 }));
 
 export default function UIThemeButton({
+  iconOnly = false,
   size = 'medium',
 }: IUIThemeButtonProps) {
   const colorMode = React.useContext(ColorModeContext);
@@ -49,33 +51,33 @@ export default function UIThemeButton({
   return (
     <ButtonGroup size={size} fullWidth>
       <ButtonTheme
-        startIcon={<LightModeIcon />}
         variant={
           cookies.colorPreferedSystem === 0 && cookies.colorMode === 'light'
             ? 'contained'
             : 'outlined'
         }
         onClick={() => colorMode.toggleColorMode('light')}
+        {...(!iconOnly && { startIcon: <LightModeIcon /> })}
       >
-        Terang
+        {!iconOnly ? 'Terang' : <LightModeIcon fontSize={size} />}
       </ButtonTheme>
       <ButtonTheme
-        startIcon={<PersonalVideoIcon />}
         variant={cookies.colorPreferedSystem === 1 ? 'contained' : 'outlined'}
         onClick={() => colorMode.toggleColorMode('system')}
+        {...(!iconOnly && { startIcon: <PersonalVideoIcon /> })}
       >
-        Sistem
+        {!iconOnly ? 'Sistem' : <PersonalVideoIcon fontSize={size} />}
       </ButtonTheme>
       <ButtonTheme
-        startIcon={<DarkModeIcon />}
         variant={
           cookies.colorPreferedSystem === 0 && cookies.colorMode === 'dark'
             ? 'contained'
             : 'outlined'
         }
         onClick={() => colorMode.toggleColorMode('dark')}
+        {...(!iconOnly && { startIcon: <DarkModeIcon /> })}
       >
-        Gelap
+        {!iconOnly ? 'Gelap' : <DarkModeIcon fontSize={size} />}
       </ButtonTheme>
     </ButtonGroup>
   );

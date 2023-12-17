@@ -1,14 +1,10 @@
 import React from 'react';
 
-/* REACT CONTEXT */
-import { ColorModeContext } from '@/components/layout';
-
 /* MATERIAL UI */
 import { useTheme } from '@mui/material';
 
 /* MATERIAL UI | COMPONENTS */
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
@@ -20,13 +16,12 @@ import Typography from '@mui/material/Typography';
 
 /* MATERIAL UI | ICONS */
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 // import DescriptionIcon from '@mui/icons-material/Description';
 // import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 
 /* APP HOOKS */
 import useResponsive from '@/hooks/use-responsive';
+import UIThemeButton from '../Theme/button';
 
 interface IUIDrawerMobileNavProps {
   open: boolean;
@@ -39,8 +34,6 @@ export default function UIDrawerMobileNav({
 }: IUIDrawerMobileNavProps) {
   const theme = useTheme();
   const { breakpoints } = useResponsive();
-
-  const colorMode = React.useContext(ColorModeContext);
 
   return (
     <Drawer
@@ -68,7 +61,7 @@ export default function UIDrawerMobileNav({
             <ListItemButton>
               <ListItemIcon>
                 <AccountCircleIcon
-                  fontSize={breakpoints.xxs ? 'medium' : 'small'}
+                  fontSize={breakpoints.xs ? 'medium' : 'small'}
                   sx={{
                     color:
                       theme.palette.mode === 'dark'
@@ -140,7 +133,12 @@ export default function UIDrawerMobileNav({
 
         <List>
           <ListItem disablePadding>
-            <Box sx={{ width: '100%', py: 1, px: 2 }}></Box>
+            <Box sx={{ width: '100%', py: 1, px: 2 }}>
+              <UIThemeButton
+                size={breakpoints.xs ? 'medium' : 'small'}
+                iconOnly={!breakpoints.xs}
+              />
+            </Box>
           </ListItem>
         </List>
       </Box>
