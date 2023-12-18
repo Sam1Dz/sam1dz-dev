@@ -1,6 +1,9 @@
 /* REACT COOKIES */
 import { CookiesProvider } from 'react-cookie';
 
+/* MATERIAL UI */
+import { AppCacheProvider } from '@mui/material-nextjs/v14-pagesRouter';
+
 /* APP LAYOUT */
 import Layout from '@/components/layout';
 
@@ -25,9 +28,11 @@ import type { AppProps } from 'next/app';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <CookiesProvider defaultSetOptions={{ path: '/' }}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <AppCacheProvider {...pageProps}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </AppCacheProvider>
     </CookiesProvider>
   );
 }

@@ -1,6 +1,6 @@
 {
   "name": "sam1dz-dev",
-  "version": "1.0.0_23-alpha.6",
+  "version": "1.0.0_24-alpha.7",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,13 +14,16 @@
     "npm": ">=9"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.1",
+    "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@fontsource/montserrat": "^5.0.16",
     "@fontsource/roboto": "^5.0.8",
     "@fontsource/ubuntu-mono": "^5.0.18",
     "@mui/icons-material": "^5.14.19",
     "@mui/material": "^5.14.20",
+    "@mui/material-nextjs": "^5.15.0",
     "next": "^14",
     "react": "^18",
     "react-cookie": "^6.1.1",
